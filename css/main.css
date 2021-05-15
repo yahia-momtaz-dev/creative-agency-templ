@@ -1,0 +1,389 @@
+/* 
+Common points 
+*/
+
+/* 
+ - Container
+    - opacity hover
+    - overlay
+    - section header
+    - section padding
+    - hover effect 1 ( left to right )
+    - hover effect 2 ( top to bottom)
+ */
+ /* General CSS styles */
+ *{
+     margin: 0;
+     padding: 0;
+      /* Css 3 : border and padding included in width */
+     box-sizing: border-box;
+ } 
+
+ body{
+     font-family: 'Poppins', sans-serif;
+     /* font-weight: 600; */
+ }
+
+ .container{
+     width: 80%;
+     /* background-color: red; */
+     margin: auto;
+ }
+
+ .clear{
+     clear: both;
+ }
+
+h1, h2, h3, h4, h5, h6{
+    font-family: montserrat sans-serif;
+}
+
+button{
+    /* default button take sans-serif
+    if we need to get body font */
+    font-family: inherit;
+}
+
+.overlay{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.btn-opacity{
+    transition: opacity 0.6s;
+}
+
+.btn-opacity:hover{
+    opacity: 0.8;
+}
+
+
+.section-header-pd-y{
+    padding: 120px 0;
+}
+
+
+.section-header{
+    text-align: center;
+
+}
+
+.section-header .section-title{
+    font-size: 35px;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+.section-header .line{
+
+    background-color: royalblue;
+  display: inline-block; /*to accept width*/
+    width: 60px;
+    height: 3px;
+    margin: 0 auto 70px auto;
+}
+
+
+
+.ltr-effect{
+    position: relative;
+}
+
+.ltr-effect:after{
+    content: "";
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    transition: width 0.5s;
+    position: absolute;
+    z-index: -1; /* to get the layer under the text*/
+}
+
+.ltr-effect:hover::after{
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+ /* Header */
+.header{
+    /* background-color: gray; */
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.header-content{
+    /* overflow: hidden; */
+    
+}
+
+
+.header .logo{
+    width: 40%;
+    /* background-color: teal; */
+    float: left;
+}
+
+.header .logo img{
+    width: 25%;
+}
+
+.header .nav{
+    width: 60%;
+    float: left;
+    list-style: none;
+}
+
+.header .nav li{
+    display: inline-block;
+}
+
+.header .nav > li > a{
+    display: inline-block;
+    padding: 15px 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+
+.header .nav li a.active::after,
+.header .nav li a::after,
+.header .nav li a:hover::after{
+    content: "";
+    display: block;
+    background-color: royalblue;
+     height: 3px; 
+}
+
+/* default home line*/
+.header .nav li a.active::after{
+    width: 100%;
+}
+
+.header .nav li a::after{
+    width: 0%;
+     transition: 0.5s
+}
+
+.header .nav li a:hover::after{
+    width: 100%;    
+}
+
+.dropdown{
+    position: relative;
+}
+
+.dropdown-menu{
+    position: absolute;
+    /* background-color: #6195ff; */
+    width: 120px;
+    text-align: center;
+    left: -50%;
+    top: 80%;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.3s;
+}
+
+
+.dropdown-menu a{
+    color: #fff;
+    text-decoration: none;
+    display: inline-block; /* for padding */
+    padding: 5px 5px;
+}
+
+.dropdown:hover .dropdown-menu{
+    opacity: 1;
+    visibility: visible;
+}
+
+/***************
+ Home Section 
+ ************/
+.home{
+    background-image: url(../imgs/background/background1.webp);
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+}
+
+.home-content{
+    /* background-color: green; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    text-align: center;
+}
+
+.home-content .title{
+    color: #fff;
+    font-size: 2.6rem;
+    text-transform: uppercase;
+}
+
+.home-content .home-p{
+    color: #fff;
+    /* background-color: grey; */
+    padding: 20px 0;
+    letter-spacing: 2px;
+    line-height: 1.5;
+}
+
+.home-content .btn{
+    width: 150px;
+    padding: 15px;
+    cursor: pointer;    
+    border-radius: 5px;
+    font-size: 15px;
+    border: 0;
+}
+
+.home-content .btn-start{
+margin-right: 10px;
+background-color: #fff;
+}
+
+.home-content .btn-learn{
+    background-color: #6195ff;
+    color: #fff;
+}
+
+
+
+
+/*************
+ About Section 
+************/
+.about-item{
+    border: 1px solid #e8e8e8;
+    width: 30%;
+    float: left;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.about-item:hover .about-item-title{
+    color: #fff
+}
+
+.mid-about-item{
+    margin: 0 2%;
+}
+
+.about-item .icon{
+    color: #6195ff;
+    margin-bottom: 30px;
+}
+
+.about-item .about-item-title{
+    text-transform: capitalize;    
+    margin-bottom: 10px;
+    transition: color 1.5s;
+}
+
+.about-item .about-item-p{
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.about-item .about-item-link{
+    color: #6195ff;
+    text-transform: capitalize;
+}
+
+
+
+
+/***************
+Portfolio Section
+*************/
+.portfolio{
+background-color: #f9f9f9;
+}
+
+.portfolio-content{
+    
+}
+
+.portfolio-item{
+    width:32%;
+    float: left;
+    margin-bottom: 5px;
+    padding: 20px;
+    position: relative;
+}
+
+.portfolio-item img{
+    width: 100%;
+}
+
+.portfolio-item .layer-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 0.6);
+    color: #fff;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: 0.5s;
+}
+
+.portfolio-item:hover .layer-content{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.portfolio-item .layer-content-info{
+    position: absolute;
+    /* background-color: green; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-align: center;
+}
+
+.layer-content .category{
+    color: #6195ff;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.layer-content .layer-content-title{
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.layer-content a i{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #6195ff;
+    color: #fff;
+    line-height: 40px;
+}
+
